@@ -1,54 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Ruchith — Front-End Web Designer & Photographer</title>
-
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Basic meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RN Tours Explore Sri Lanka</title>
     <meta name="description"
-        content="Ruchith — Front-End Web Designer & Photographer. Portfolio showcasing web design and photography." />
-
+        content="RN Tours: Modern Sri Lanka travel & tour packages, instant pricing, secure mock checkout, photo gallery, and more." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+        integrity="sha512-1ycn6IcaQQ40/J6MdSMP3V6j6c6b8bq5l5h2R3r6E8Z8VnGf2QfGm8Ew1rjYIYpQ2aVQmQnYb0mJ9R1ZC1QO3Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        /* ============================
-       Variables & Reset
-       ============================ */
         :root {
-            --bg: #1c240f;
-            --card: #0b1220;
-            --muted: #9aa4b2;
+            --bg: #0b1020;
+            --surface: #11162b;
+            --muted: #8ea0c2;
+            --text: #eaf2ff;
+            --primary: #3ac7b6;
             --accent: #7c5cff;
-            --accent-2: #24d39b;
-            --glass: rgba(255, 255, 255, 0.04);
-            --max-width: 1100px;
-            --radius: 14px;
-            --transition: 300ms cubic-bezier(.2, .9, .3, 1);
-            --soft-shadow: 0 8px 30px rgba(2, 6, 23, 0.6);
-            color-scheme: dark;
+            --warning: #ffb703;
+            --danger: #ef476f;
+            --radius: 16px;
+            --shadow: 0 10px 25px rgba(0, 0, 0, .35);
+            --grad: radial-gradient(1200px 600px at 10% -10%, rgba(124, 92, 255, .25), transparent 60%),
+                radial-gradient(800px 400px at 90% 10%, rgba(58, 199, 182, .18), transparent 60%),
+                linear-gradient(180deg, #0b1020 0%, #0a0f1d 100%);
         }
 
         * {
             box-sizing: border-box
         }
 
-        html,
-        body {
-            height: 100%
+        html {
+            scroll-behavior: smooth
         }
 
         body {
             margin: 0;
-            font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-            background: linear-gradient(180deg, #1c1d1e 0%, #181a1c 100%);
-            color: #e6eef8;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            line-height: 1.45;
-            padding: 24px 16px;
+            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+            background: var(--grad);
+            color: var(--text)
         }
 
         a {
@@ -61,1049 +55,1007 @@
             display: block
         }
 
-        /* Container */
+        /* Layout */
         .container {
-            max-width: var(--max-width);
-            margin: 0 auto;
+            width: min(1200px, 92vw);
+            margin-inline: auto
         }
 
-        /* ============================
-       Header & Navigation
-       ============================ */
         header {
             position: sticky;
-            top: 16px;
-            z-index: 40;
-            background: linear-gradient(180deg, rgba(11, 17, 30, 0.55), rgba(11, 17, 30, 0.35));
-            backdrop-filter: blur(6px);
-            border-radius: 12px;
-            padding: 12px 16px;
-            box-shadow: var(--soft-shadow);
+            top: 0;
+            z-index: 50;
+            background: rgba(11, 16, 32, .7);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(255, 255, 255, .06)
         }
 
         .nav {
             display: flex;
-            gap: 16px;
             align-items: center;
             justify-content: space-between;
+            padding: 14px 0
         }
 
         .brand {
             display: flex;
             gap: 12px;
-            align-items: center;
+            align-items: center
         }
 
-
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: conic-gradient(from 30deg, var(--accent), var(--primary));
+            box-shadow: 0 6px 16px rgba(124, 92, 255, .35)
+        }
 
         .brand h1 {
-            font-size: 16px;
-            margin: 0
-        }
-
-        .brand p {
-            font-size: 12px;
+            font-size: 1.15rem;
             margin: 0;
-            color: var(--muted)
+            font-weight: 800;
+            letter-spacing: .2px
         }
 
         nav ul {
             display: flex;
-            gap: 10px;
+            gap: 18px;
             list-style: none;
             margin: 0;
-            padding: 0;
-            align-items: center;
+            padding: 0
         }
 
         nav a {
-            display: inline-block;
-            padding: 8px 12px;
+            padding: 10px 12px;
             border-radius: 10px;
-            color: var(--muted);
-            font-weight: 600;
-            transition: all var(--transition);
+            color: var(--muted)
         }
 
         nav a:hover {
-            color: #fff;
-            transform: translateY(-2px)
+            background: rgba(255, 255, 255, .06);
+            color: var(--text)
         }
 
-        nav a.active {
-            color: var(--accent)
-        }
-
-        /* hamburger for mobile */
-        .hamburger {
-            display: none;
-            width: 44px;
-            height: 44px;
-            border-radius: 10px;
-            background: var(--glass);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-
-        /* Mobile menu */
-        .mobile-menu {
-            display: none;
-        }
-
-        /* ============================
-       Hero
-       ============================ */
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 28px;
-            align-items: center;
-            margin: 28px 0 36px;
-        }
-
-        .hero-card {
-            padding: 28px;
-            border-radius: var(--radius);
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            box-shadow: var(--soft-shadow);
-        }
-
-        .eyebrow {
-            color: var(--muted);
-            font-size: 13px;
-            margin-bottom: 10px
-        }
-
-        .hero h2 {
-            font-size: 34px;
-            margin: 6px 0 8px
-        }
-
-        .hero h3 {
-            font-size: 18px;
-            margin: 0;
-            color: var(--muted)
-        }
-
-        .cta-row {
-            display: flex;
-            gap: 12px;
-            margin-top: 18px;
-            align-items: center
-        }
-
-        .btn {
-            padding: 10px 16px;
-            border-radius: 10px;
-            background: linear-gradient(90deg, var(--accent), #6dd3ff);
-            color: #061226;
-            font-weight: 700;
-            cursor: pointer;
-            border: none;
-            transition: transform var(--transition), box-shadow var(--transition);
-        }
-
-        .btn.secondary {
-            background: transparent;
-            color: var(--muted);
-            border: 1px solid rgba(255, 255, 255, 0.04);
-            font-weight: 600;
-        }
-
-        .btn:hover {
-            transform: translateY(-4px)
-        }
-
-        /* Right column visual */
-        .hero-visual {
-            border-radius: 12px;
-            padding: 18px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            align-items: center;
-            justify-content: center;
-            min-height: 260px;
-        }
-
-        .profile {
-            width: 120px;
-            height: 120px;
-            border-radius: 14px;
-            overflow: hidden;
-            border: 4px solid rgba(255, 255, 255, 0.03);
-        }
-
-        .profile img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover
-        }
-
-        .small-stats {
-            display: flex;
-            gap: 10px;
-            margin-top: 6px
-        }
-
-        .stat {
-            background: var(--glass);
-            padding: 8px 12px;
-            border-radius: 10px;
-            font-size: 13px;
-            color: var(--muted)
-        }
-
-        /* ============================
-       Sections shared styles
-       ============================ */
-        section {
-            margin: 26px 0;
-        }
-
-        .card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            padding: 18px;
-            border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(2, 6, 23, 0.45);
-        }
-
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 14px;
-        }
-
-        .section-title h3 {
-            margin: 0
-        }
-
-        p.lead {
-            color: var(--muted);
-            margin-top: 8px;
-            margin-bottom: 0
-        }
-
-        /* ============================
-       About
-       ============================ */
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 280px;
-            gap: 18px;
-            align-items: start;
-        }
-
-        .skills {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-top: 12px;
-        }
-
-        .skill {
-            background: rgba(255, 255, 255, 0.03);
-            color: var(--muted);
-            padding: 8px 10px;
-            border-radius: 999px;
-            font-weight: 600;
-            font-size: 13px;
-        }
-
-        /* ============================
-       Portfolio (tabs + grid)
-       ============================ */
-        .tabs {
-            display: flex;
-            gap: 8px;
-            margin-bottom: 12px;
-        }
-
-        .tab-btn {
-            padding: 10px 12px;
-            border-radius: 10px;
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            color: var(--muted);
-            cursor: pointer;
-            font-weight: 600;
-        }
-
-        .tab-btn.active {
-            background: linear-gradient(90deg, var(--accent), #6dd3ff);
-            color: #061226
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 14px;
-        }
-
-        .project {
-            border-radius: 12px;
-            overflow: hidden;
-            position: relative;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            transition: transform var(--transition), box-shadow var(--transition);
-            cursor: default;
-        }
-
-        .project:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 14px 50px rgba(2, 6, 23, 0.6)
-        }
-
-        .project .thumb {
-            height: 160px;
-            object-fit: cover;
-            display: block;
-            width: 100%
-        }
-
-        .project-content {
-            padding: 12px
-        }
-
-        .project h4 {
-            margin: 0 0 8px
-        }
-
-        .project p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 14px
-        }
-
-        .project .links {
-            margin-top: 10px;
+        .cta {
             display: flex;
             gap: 10px
         }
 
-        .link-btn {
-            font-size: 13px;
-            padding: 8px 10px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.03);
-            cursor: pointer;
-        }
-
-        /* Photography gallery */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-        }
-
-        .gallery img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 10px;
-            display: block;
-            transition: transform var(--transition);
-        }
-
-        .gallery img:hover {
-            transform: scale(1.04)
-        }
-
-        /* Lightbox modal */
-        .lightbox {
-            position: fixed;
-            inset: 0;
-            background: rgba(2, 6, 23, 0.85);
-            display: none;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            justify-content: center;
-            z-index: 90;
+            gap: 10px;
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            cursor: pointer;
+            transition: .22s transform ease, .22s box-shadow ease, .22s opacity ease
         }
 
-        .lightbox img {
-            max-width: 90%;
-            max-height: 80%;
-            border-radius: 8px
+        .btn:active {
+            transform: translateY(1px)
         }
 
-        /* ============================
-       Education & Services & Contact
-       ============================ */
-        .edu-list {
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
+            box-shadow: 0 10px 24px rgba(124, 92, 255, .35)
+        }
+
+        .btn-outline {
+            border-color: rgba(255, 255, 255, .18);
+            background: rgba(255, 255, 255, .04)
+        }
+
+        /* Hero */
+        .hero {
+            position: relative;
+            isolation: isolate
+        }
+
+        .hero .wrap {
+            display: grid;
+            grid-template-columns: 1.2fr .8fr;
+            gap: 28px;
+            padding: 48px 0 28px
+        }
+
+        .hero-copy h2 {
+            font-size: clamp(2rem, 1.6rem + 2vw, 3.2rem);
+            line-height: 1.1;
+            margin: 0 0 12px
+        }
+
+        .sub {
+            color: var(--muted);
+            max-width: 48ch
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px
+        }
+
+        .hero-media {
+            position: relative;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            min-height: 320px
+        }
+
+        .hero-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tagline {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 8px 12px;
+            border-radius: 999px;
+            background: rgba(124, 92, 255, .15);
+            color: #e5ddff;
+            border: 1px solid rgba(124, 92, 255, .35);
+            font-weight: 600;
+            margin-bottom: 10px
+        }
+
+        /* Sections */
+        section {
+            padding: 56px 0
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px
+        }
+
+        .section-title h3 {
+            margin: 0;
+            font-size: 1.6rem
+        }
+
+        .kicker {
+            color: var(--muted);
+            font-weight: 500
+        }
+
+        /* Packages */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 18px
+        }
+
+        .card {
+            grid-column: span 4;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 18px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column
+        }
+
+        .card .body {
+            padding: 14px 14px 16px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px
+        }
+
+        .meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--muted);
+            font-size: .95rem
+        }
+
+        .pill {
+            display: inline-flex;
+            gap: 8px;
+            align-items: center;
+            padding: 6px 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .04);
+            border: 1px solid rgba(255, 255, 255, .08);
+            font-weight: 600;
+            color: #cfe7ff
+        }
+
+        .price {
+            font-size: 1.3rem;
+            font-weight: 800
+        }
+
+        /* Calculator */
+        .calc {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 18px;
+            padding: 18px
+        }
+
+        .calc .field {
             display: flex;
             flex-direction: column;
             gap: 8px
         }
 
-        .edu-item {
-            padding: 12px;
-            border-radius: 10px;
-            background: var(--glass);
-            color: var(--muted)
+        label {
+            font-weight: 600
         }
 
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px
+        input[type="number"],
+        select,
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid rgba(255, 255, 255, .1);
+            color: var(--text);
+            border-radius: 12px;
+            padding: 12px 12px;
+            outline: none
         }
 
-        .service {
-            padding: 14px;
-            border-radius: 10px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.02));
-            color: var(--muted)
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(58, 199, 182, .25)
         }
 
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 320px;
-            gap: 18px;
-            align-items: start
-        }
-
-        .contact-form {
+        .total {
             display: flex;
-            flex-direction: column;
-            gap: 10px
+            align-items: center;
+            justify-content: space-between;
+            background: rgba(124, 92, 255, .12);
+            border: 1px solid rgba(124, 92, 255, .3);
+            padding: 14px;
+            border-radius: 14px
         }
 
-        .input,
-        textarea {
-            background: transparent;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 10px 12px;
-            color: inherit;
-            border-radius: 8px;
-            font-size: 14px
+        /* Gallery */
+        .filters {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px
         }
 
-        textarea {
-            min-height: 120px;
-            resize: vertical
+        .filter-btn {
+            padding: 8px 12px;
+            border-radius: 999px;
+            border: 1px solid rgba(255, 255, 255, .14);
+            background: rgba(255, 255, 255, .05);
+            cursor: pointer
         }
 
-        .contact-info {
-            background: var(--glass);
-            padding: 12px;
-            border-radius: 10px;
-            color: var(--muted)
+        .filter-btn.active {
+            background: linear-gradient(135deg, var(--accent), var(--primary));
         }
 
-        .contact-info a {
-            display: inline-block;
-            margin-top: 8px;
-            color: var(--accent);
-            font-weight: 700
+        .gallery {
+            columns: 1;
+            column-gap: 12px
+        }
+
+        .gallery img {
+            width: 100%;
+            border-radius: 14px;
+            margin: 0 0 12px;
+            cursor: pointer;
+            transition: .2s transform
+        }
+
+        .gallery img:hover {
+            transform: translateY(-3px)
+        }
+
+        /* Lightbox */
+        .lightbox {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .82);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 4vw;
+            z-index: 100
+        }
+
+        .lightbox.open {
+            display: flex
+        }
+
+        .lightbox img {
+            max-height: 86vh;
+            border-radius: 16px
+        }
+
+        /* Carousel */
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 18px;
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, .06)
+        }
+
+        .slides {
+            display: flex;
+            transition: transform .45s ease
+        }
+
+        .slide {
+            flex: 0 0 100%;
+            padding: 24px
+        }
+
+        .dots {
+            display: flex;
+            gap: 6px;
+            justify-content: center;
+            padding: 10px
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, .25);
+            cursor: pointer
+        }
+
+        .dot.active {
+            background: linear-gradient(135deg, var(--accent), var(--primary))
+        }
+
+        /* Contact */
+        .contact {
+            display: grid;
+            grid-template-columns: 1.1fr .9fr;
+            gap: 18px
+        }
+
+        .whatsapp {
+            position: fixed;
+            right: 18px;
+            bottom: 18px;
+            z-index: 60
+        }
+
+        .wa-btn {
+            background: #25D366;
+            color: #062c0f
         }
 
         /* Footer */
         footer {
-            margin-top: 28px;
-            text-align: center;
-            color: var(--muted);
-            font-size: 14px;
-            padding: 18px 0
+            background: #0a0f1d;
+            border-top: 1px solid rgba(255, 255, 255, .06)
         }
 
-        /* ============================
-       Small screens
-       ============================ */
-        @media (max-width:980px) {
-            .hero {
+        .foot {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 18px;
+            padding: 28px 0
+        }
+
+        .foot a {
+            color: var(--muted)
+        }
+
+        /* Responsive */
+        @media (max-width: 980px) {
+            .hero .wrap {
                 grid-template-columns: 1fr;
             }
 
-            .about-grid {
+            .grid .card {
+                grid-column: span 6
+            }
+
+            .calc {
                 grid-template-columns: 1fr
             }
 
-            .contact-grid {
+            .contact {
                 grid-template-columns: 1fr
             }
 
-            .gallery {
-                grid-template-columns: repeat(2, 1fr)
+            .foot {
+                grid-template-columns: 1fr 1fr
             }
+        }
 
-            .hero-visual {
-                min-height: 200px
-            }
-
+        @media (max-width: 640px) {
             nav ul {
                 display: none
             }
 
-            .hamburger {
-                display: flex
+            .grid .card {
+                grid-column: span 12
             }
 
-            .mobile-menu {
-                display: none
-            }
-
-            header {
-                padding: 10px
+            .gallery {
+                columns: 2
             }
         }
 
-        @media (max-width:520px) {
-            .gallery img {
-                height: 140px
+        @media (min-width: 641px) {
+            .gallery {
+                columns: 3
             }
-
-            .profile {
-                width: 100px;
-                height: 100px
-            }
-
-            .section-title h3 {
-                font-size: 18px
-            }
-
-            .hero h2 {
-                font-size: 26px
-            }
-
-            .hero h3 {
-                font-size: 15px
-            }
-        }
-
-        /* Simple reveal animation helper */
-        .reveal {
-            opacity: 0;
-            transform: translateY(12px) scale(.995);
-            transition: opacity 600ms ease, transform 600ms ease;
-            will-change: opacity, transform;
-        }
-
-        .reveal.is-visible {
-            opacity: 1;
-            transform: none;
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Header / Nav -->
-        <header class="card" role="banner">
-            <div class="nav">
-                <div class="brand">
-                    <div class="brand"></div>
-                    <div>
-                        <h2>Ruchith Nekmal</h2>
-
-                    </div>
-                </div>
-                <style>
-                    .brand h2 {
-                        color: #05b43f;
-                        /* Change to your preferred color */
-                    }
-                </style>
-
-
-                <!-- Desktop nav -->
-                <nav aria-label="Main navigation">
-                    <ul>
-                        <li><a href="#home" class="nav-link active">Home</a></li>
-                        <li><a href="#about" class="nav-link">About</a></li>
-                        <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
-                        <li><a href="#education" class="nav-link">Education</a></li>
-                        <li><a href="#services" class="nav-link">Services</a></li>
-                        <li><a href="#contact" class="nav-link">Contact</a></li>
-                    </ul>
-                </nav>
-
-                <!-- Hamburger for mobile -->
-                <button class="hamburger" id="hamburger" aria-expanded="false" aria-label="Open menu">
-                    <!-- simple icon -->
-                    <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="20" height="2" rx="1" fill="white" opacity="0.9" />
-                        <rect y="6" width="20" height="2" rx="1" fill="white" opacity="0.9" />
-                        <rect y="12" width="20" height="2" rx="1" fill="white" opacity="0.9" />
-                    </svg>
-                </button>
+    <!-- Header -->
+    <header>
+        <div class="container nav">
+            <div class="brand">
+                <div class="logoo" aria-hidden="true"></div>
+                <h1 aria-label="RN Tours">RN Tours</h1>
             </div>
-
-            <!-- Mobile menu content -->
-            <nav class="mobile-menu card" id="mobileMenu" aria-hidden="true"
-                style="margin-top:10px; display:none; padding:12px;">
-                <ul style="list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px;">
-                    <li><a href="#home" class="mobile-link">Home</a></li>
-                    <li><a href="#about" class="mobile-link">About</a></li>
-                    <li><a href="#portfolio" class="mobile-link">Portfolio</a></li>
-                    <li><a href="#education" class="mobile-link">Education</a></li>
-                    <li><a href="#services" class="mobile-link">Services</a></li>
-                    <li><a href="#contact" class="mobile-link">Contact</a></li>
+            <nav aria-label="Primary">
+                <ul>
+                    <li><a href="#packages">Packages</a></li>
+                    <li><a href="#pricing">Price Calculator</a></li>
+                    <li><a href="#gallery">Gallery</a></li>
+                    <li><a href="#testimonials">Reviews</a></li>
+                    <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-        </header>
-
-        <!-- HERO -->
-        <main id="home" class="hero" role="main">
-            <div class="hero-card card reveal">
-                <div class="eyebrow">Hello, I'm</div>
-                <h2>Ruchith</h2>
-                <h3>Front-End Web Designer & Photographer</h3>
-                <p class="lead">I create modern, responsive websites and capture compelling photos that tell stories. I
-                    love crafting pixel-perfect UI and vivid imagery.</p>
-
-                <div class="cta-row">
-                    <button class="btn" id="ctaContact">Hire Me</button>
-                    <a class="btn secondary" href="#portfolio">View Work</a>
-                </div>
-
-                <!-- Quick about / skills -->
-                <div style="margin-top:14px">
-                    <div style="font-weight:700; margin-bottom:8px">Skills</div>
-                    <div class="skills">
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Responsive Design</span>
-                        <span class="skill">Photography</span>
-                    </div>
-                </div>
+            <div class="cta">
+                <a class="btn btn-outline" href="#packages"><i class="fa-solid fa-compass"></i> Browse Tours</a>
+                <a class="btn btn-primary" href="#pricing"><i class="fa-solid fa-wand-magic-sparkles"></i> Plan My
+                    Trip</a>
             </div>
-
-            <aside class="hero-visual card reveal">
-                <!-- Profile image: replace src with your photo -->
-                <div class="profile" aria-hidden="true">
-                    <img src="Profile.jpg" alt="Profile image">
-                </div>
-
-                <div style="text-align:center">
-                    <div style="font-weight:700">23 • Sri Lanka</div>
-                    <div style="color:var(--muted); font-size:14px;">HND in Software Engineering · Photography
-                    </div>
-                </div>
-
-                <div class="small-stats" role="list" aria-label="Quick stats">
-                    <div class="stat" role="listitem">Freelance projects</div>
-                    <div class="stat" role="listitem">Photography shoots</div>
-                </div>
-            </aside>
-        </main>
-
-        <!-- ABOUT -->
-        <section id="about" class="reveal">
-            <div class="section-title">
-                <h3>About Me</h3>
-            </div>
-            <div class="card about-grid">
-                <div>
-                    <p>I'm 23 years old from Sri Lanka. I have completed an HND in Software Engineering and a
-                        Photography course. I specialize in front-end development with HTML, CSS, and JavaScript, and
-                        I'm passionate about modern, responsive web design and creative photography.</p>
-                    <p style="margin-top:12px; color:var(--muted)">I build responsive websites using modern standards
-                        and craft photography that complements digital projects — from landing pages to visual
-                        storytelling.</p>
-                </div>
-
-                <div>
-                    <h4>Quick skills</h4>
-                    <div class="skills" style="margin-top:8px">
-                        <span class="skill">HTML</span>
-                        <span class="skill">CSS</span>
-                        <span class="skill">JavaScript</span>
-                        <span class="skill">Responsive Design</span>
-                        <span class="skill">Photography</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PORTFOLIO -->
-        <section id="portfolio" class="reveal">
-            <div class="section-title">
-                <h3>Portfolio</h3>
-            </div>
-
-            <div class="card">
-                <!-- Tabs -->
-                <div class="tabs" role="tablist" aria-label="Portfolio categories">
-                    <button class="tab-btn active" data-tab="web" role="tab" aria-selected="true">Web Design
-                        Projects</button>
-                    <button class="tab-btn" data-tab="photo" role="tab">Photography Projects</button>
-                </div>
-
-                <!-- Web design projects -->
-                <div id="tab-web" class="tab-panel">
-                    <div class="portfolio-grid">
-                        <!-- Project 1 -->
-                        <article class="project">
-                            <img class="thumb"
-                                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop"
-                                alt="Project screenshot">
-                            <div class="project-content">
-                                <h4>Creative Agency Site</h4>
-                                <p>Landing page for a creative agency with responsive layout, animations, and contact
-                                    form.</p>
-                                <div class="links">
-                                    <a class="link-btn" href="https://ruchiyaa.github.io/Web-Page/" target="_blank"
-                                        rel="noopener">Live Demo</a>
-                                    <a class="link-btn" href="#" target="_blank" rel="noopener">View Code</a>
-                                </div>
-                            </div>
-                        </article>
-
-                        <!-- Project 2 -->
-                        <article class="project">
-                            <img class="thumb"
-                                src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?q=80&w=1600&auto=format&fit=crop&h=900"
-                                alt="Project screenshot 2">
-                            <div class="project-content">
-                                <h4>Portfolio Template</h4>
-                                <p>Custom portfolio template with grid portfolio, responsive nav, and filterable
-                                    projects.</p>
-                                <div class="links">
-                                    <a class="link-btn" href="#" target="_blank" rel="noopener">Live Demo</a>
-                                    <a class="link-btn" href="#" target="_blank" rel="noopener">View Code</a>
-                                </div>
-                            </div>
-                        </article>
-                    </div>
-                </div>
-
-                <!-- Photography projects -->
-                <div id="tab-photo" class="tab-panel" style="display:none;">
-                    <div class="gallery" aria-live="polite">
-                        <!-- Replace with your own photos -->
-                        <img src="https://images.unsplash.com/photo-1537551080512-fb7dd14fbf90?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9"
-                            alt="Photo 1"
-                            data-full="https://images.unsplash.com/photo-1537551080512-fb7dd14fbf90?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEyMDd9">
-                        <img src="https://i.pinimg.com/originals/2c/fa/5f/2cfa5f6d581278d33b1fb37b267f8f6d.jpg"
-                            alt="Photo 2"
-                            data-full="https://i.pinimg.com/originals/2c/fa/5f/2cfa5f6d581278d33b1fb37b267f8f6d.jpg">
-                        <img src="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=1200&auto=format&fit=crop"
-                            alt="Photo 3"
-                            data-full="https://images.unsplash.com/photo-1519677100203-a0e668c92439?q=80&w=2000&auto=format&fit=crop">
-                        <img src="https://tse1.mm.bing.net/th/id/OIP.CKpJVpih5LuHiKMUW17hTgHaFj?w=1224&h=917&rs=1&pid=ImgDetMain&o=7&rm=3"
-                            alt="Photo 4"
-                            data-full="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=2000&auto=format&fit=crop">
-                        <img src="https://idubephotosafaris.com/wp-content/uploads/2022/06/SSR0F9A8854.jpg"
-                            alt="Photo 5"
-                            data-full="https://idubephotosafaris.com/wp-content/uploads/2022/06/SSR0F9A8854.jpg">
-                        <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1200&auto=format&fit=crop"
-                            alt="Photo 6"
-                            data-full="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=2000&auto=format&fit=crop">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Lightbox for photography -->
-        <div class="lightbox" id="lightbox" aria-hidden="true" role="dialog" aria-label="Image preview">
-            <img src="" alt="">
         </div>
+    </header>
 
-        <!-- EDUCATION -->
-        <section id="education" class="reveal">
+    <!-- Hero -->
+    <section class="hero">
+        <div class="container wrap">
+            <div class="hero-copy">
+                <span class="tagline"><i class="fa-solid fa-island-tropical"></i> Explore Sri Lanka with RN Tours</span>
+                <h2>Handcrafted journeys across beaches, hills, culture & wildlife.</h2>
+                <p class="sub">From the golden shores of Mirissa to the misty Ella Gap—our experts curate seamless,
+                    safe, and spectacular experiences tailored to your pace.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-primary" href="#pricing"><i class="fa-solid fa-plane-departure"></i> Plan My
+                        Trip</a>
+                    <a class="btn btn-outline" href="#packages"><i class="fa-solid fa-map"></i> Browse Tours</a>
+                </div>
+            </div>
+            <div class="hero-media" aria-label="Sri Lanka scenic montage">
+                <img src="https://www.tilaksblog.com/wp-content/uploads/2023/04/1588843579185.jpg"
+                    alt="Nine Arches Bridge in Ella, Sri Lanka" />
+            </div>
+        </div>
+    </section>
+
+    <!-- Travel Packages -->
+    <section id="packages">
+        <div class="container">
             <div class="section-title">
-                <h3>Education</h3>
-            </div>
-            <div class="card edu-list">
-                <div class="edu-item">
-                    <strong>HND in Software Engineering</strong>
-                    <div style="color:var(--muted); font-size:13px">Completed — focus: web & systems</div>
-                </div>
-
-                <div class="edu-item">
-                    <strong>Photography Course</strong>
-                    <div style="color:var(--muted); font-size:13px">Completed — creative & technical photography</div>
-                </div>
-
-                <div class="edu-item">
-                    <strong>Future studies</strong>
-                    <div style="color:var(--muted); font-size:13px">Add more entries here (e.g., Certifications,
-                        Workshops)</div>
+                <div>
+                    <h3>Popular Packages</h3>
+                    <div class="kicker">Pick a tour—see the price instantly.</div>
                 </div>
             </div>
-        </section>
+            <div class="grid" id="packageGrid"></div>
+        </div>
+    </section>
 
-        <!-- SERVICES -->
-        <section id="services" class="reveal">
+    <!-- Price Calculator -->
+    <section id="pricing">
+        <div class="container">
             <div class="section-title">
-                <h3>Services</h3>
-            </div>
-
-            <div class="card">
-                <div class="services-grid">
-                    <div class="service">
-                        <strong>Responsive Web Design</strong>
-                        <p style="color:var(--muted); margin-top:8px">Mobile-first, accessible, and pixel-perfect
-                            layouts.</p>
-                    </div>
-
-                    <div class="service">
-                        <strong>Website Redesign</strong>
-                        <p style="color:var(--muted); margin-top:8px">Modernize UX, improve conversions, performance
-                            tune.</p>
-                    </div>
-
-                    <div class="service">
-                        <strong>Landing Page Development</strong>
-                        <p style="color:var(--muted); margin-top:8px">High-converting single pages with animations and
-                            forms.</p>
-                    </div>
-
-                    <div class="service">
-                        <strong>Creative Photography</strong>
-                        <p style="color:var(--muted); margin-top:8px">Editorial, product, lifestyle, and event
-                            photography.</p>
-                    </div>
+                <div>
+                    <h3>Instant Price Calculator</h3>
+                    <div class="kicker">Transparent pricing based on travelers, duration & vehicle type.</div>
                 </div>
             </div>
-        </section>
+            <div class="calc" role="form" aria-labelledby="pricecalc">
+                <div class="field">
+                    <label for="travelers">Number of Travelers</label>
+                    <input id="travelers" type="number" min="1" value="2" />
+                </div>
+                <div class="field">
+                    <label for="days">Trip Length (days)</label>
+                    <input id="days" type="number" min="1" value="5" />
+                </div>
+                <div class="field">
+                    <label for="vehicle">Vehicle Type</label>
+                    <select id="vehicle">
+                        <option value="sedan">Sedan (1–3 pax)</option>
+                        <option value="van">Van (4–8 pax)</option>
+                        <option value="minibus">Mini Bus (9–15 pax)</option>
+                        <option value="luxury">Luxury SUV</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="packageSelect">Selected Package</label>
+                    <select id="packageSelect">
+                        <option value="custom">Custom Itinerary</option>
+                    </select>
+                </div>
+                <div class="total" aria-live="polite">
+                    <strong>Total Price</strong>
+                    <div>
+                        <span class="price" id="totalPrice">LKR 0</span>
+                        <small id="priceNote" style="display:block;color:var(--muted)"></small>
+                    </div>
+                </div>
+                <div style="display:flex;gap:10px;align-items:center">
+                    <button class="btn btn-primary" id="payStripe"><i class="fa-brands fa-cc-stripe"></i> Card
+                        Payment</button>
+                    <button class="btn btn-outline" id="payPayHere"><img alt="PayHere"
+                            src="https://th.bing.com/th/id/OIP.DH2Jagzv0ozSMLB3qIG6rwHaHa?w=172&h=180&c=7&r=0&o=7&dpr=1.3&pid=1.7&rm=3"
+                            style="height:18px;background:#fff;border-radius:4px;padding:2px"> PayPal </button>
+                </div>
+            </div>
+        </div>
+    </section>
 
-        <!-- CONTACT -->
-        <section id="contact" class="reveal">
+    <!-- Gallery -->
+    <section id="gallery">
+        <div class="container">
             <div class="section-title">
-                <h3>Contact</h3>
+                <div>
+                    <h3>Travel Photo Gallery</h3>
+                    <div class="kicker">Click to enlarge • Filter by theme</div>
+                </div>
+                <div class="filters" id="filters"></div>
             </div>
+            <div class="gallery" id="galleryGrid"></div>
+        </div>
+    </section>
 
-            <div class="card contact-grid">
-                <!-- Form -->
-                <form class="contact-form" id="contactForm" autocomplete="off" novalidate>
-                    <input class="input" id="name" name="name" placeholder="Your name" required>
-                    <input class="input" id="email" name="email" type="email" placeholder="Your email" required>
-                    <input class="input" id="subject" name="subject" placeholder="Subject">
-                    <textarea id="message" name="message" placeholder="Message" required></textarea>
-                    <div style="display:flex; gap:8px; align-items:center">
-                        <button class="btn" type="submit">Send Message</button>
-                        <div id="formStatus" style="color:var(--muted); font-size:14px"></div>
-                    </div>
-                </form>
-
-                <!-- Contact info -->
-                <aside class="contact-info">
-                    <div><strong>Email</strong></div>
-                    <div style="color:var(--muted); margin-top:6px">nekmalr@gmail.com</div>
-
-                    <div style="margin-top:12px"><strong>WhatsApp</strong></div>
-                    <div style="color:var(--muted); margin-top:6px"><a href="https://wa.me/94773056701" target="_blank"
-                            rel="noopener">+94 77 305 6702</a></div>
-
-                    <div style="margin-top:12px"><strong>LinkedIn</strong></div>
-                    <div style="color:var(--muted); margin-top:6px"><a
-                            href="https://www.linkedin.com/in/ruchith-nekmal-525a702a7?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
-                            target="_blank" rel="noopener">linkedin.com/in/your-linkedin</a></div>
-
-                    <div style="margin-top:14px">
-                        <strong>Quick</strong>
-                        <p style="color:var(--muted); margin:6px 0 0; font-size:13px">Prefer WhatsApp? Click the link
-                            above. Use the form to send a message — this sample shows a client-side submit flow (not
-                            emailing). Replace form handler with your backend or a service like Formspree / Netlify
-                            Forms.</p>
-                    </div>
-                </aside>
-            </div>
-        </section>
-
-        <footer>
-            © 2025 Designed & Built by Ruchith.
-        </footer>
+    <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+        <img alt="Preview" id="lightboxImg" />
     </div>
 
-    <!-- ============================
-       JavaScript (behavior & interactions)
-       ============================ -->
-    <script>
-        /* -------------------------
-           Utilities & DOM picks
-           ------------------------- */
-        const navLinks = document.querySelectorAll('.nav-link');
-        const mobileLinks = document.querySelectorAll('.mobile-link');
-        const sections = document.querySelectorAll('main, section');
-        const hamburger = document.getElementById('hamburger');
-        const mobileMenu = document.getElementById('mobileMenu');
-        const ctaContact = document.getElementById('ctaContact');
+    <!-- Testimonials -->
+    <section id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h3>Happy Travelers</h3>
+                    <div class="kicker">Real reviews from recent trips</div>
+                </div>
+            </div>
+            <div class="carousel" aria-roledescription="carousel">
+                <div class="slides" id="slides"></div>
+                <div class="dots" id="dots"></div>
+            </div>
+        </div>
+    </section>
 
-        /* -------------------------
-           Mobile menu toggle
-           ------------------------- */
-        hamburger.addEventListener('click', () => {
-            const expanded = hamburger.getAttribute('aria-expanded') === 'true';
-            hamburger.setAttribute('aria-expanded', String(!expanded));
-            if (mobileMenu.style.display === 'none' || mobileMenu.style.display === '') {
-                mobileMenu.style.display = 'block';
-                mobileMenu.setAttribute('aria-hidden', 'false');
-            } else {
-                mobileMenu.style.display = 'none';
-                mobileMenu.setAttribute('aria-hidden', 'true');
+    <!-- Contact -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <div>
+                    <h3>Contact Us</h3>
+                    <div class="kicker">We typically reply within an hour (9:00–18:00 IST)</div>
+                </div>
+            </div>
+            <div class="contact">
+                <form id="contactForm" class="calc" style="grid-template-columns:1fr 1fr">
+                    <div class="field">
+                        <label for="name">Name</label>
+                        <input id="name" type="text" placeholder="Your full name" required />
+                    </div>
+                    <div class="field">
+                        <label for="email">Email</label>
+                        <input id="email" type="email" placeholder="you@example.com" required />
+                    </div>
+                    <div class="field" style="grid-column:1 / -1">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="4" placeholder="Tell us about your dream Sri Lanka trip…"
+                            required></textarea>
+                    </div>
+                    <div style="display:flex;gap:10px;grid-column:1 / -1">
+                        <button class="btn btn-primary" type="submit"><i class="fa-regular fa-paper-plane"></i> Send
+                            Inquiry</button>
+                        <a class="btn btn-outline" id="waLink" target="_blank" rel="noopener"><i
+                                class="fa-brands fa-whatsapp"></i> Chat on WhatsApp</a>
+                    </div>
+                </form>
+                <div class="calc">
+                    <div>
+                        <h4 style="margin:0 0 8px">RN Tours</h4>
+                        <p class="kicker">Colombo, Sri Lanka</p>
+                        <p class="kicker">Hotline: +94 77 123 4567</p>
+                        <p class="kicker">Email: hello@rntours.lk</p>
+                        <div style="display:flex;gap:10px;margin-top:8px">
+                            <a class="pill" href="#"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                            <a class="pill" href="#"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                            <a class="pill" href="#"><i class="fa-brands fa-tiktok"></i> TikTok</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 style="margin:0 0 8px">Office Hours</h4>
+                        <p class="kicker">Mon–Fri: 9:00–18:00</p>
+                        <p class="kicker">Sat: 9:00–13:00</p>
+                        <p class="kicker">Sun: Closed</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <style>
+        .whatsapp {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 1000;
+        }
+
+        .wa-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 16px;
+            background-color: #25D366;
+            color: white;
+            font-weight: 600;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+            text-decoration: none;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .wa-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+
+        .wa-btn img {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+        }
+    </style>
+
+    <div class="whatsapp">
+        <a class="btn wa-btn" id="waFloat" href="https://wa.me/94773056701" target="_blank" rel="noopener">
+            <img src="https://th.bing.com/th/id/R.66c510d8e3208ca8609dcf558e759c7e?rik=w%2b1yNSlxY5NXxA&pid=ImgRaw&r=0"
+                alt="RN Tours Logo">
+            Message RN Tours
+        </a>
+    </div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container foot">
+            <div>
+                <div class="brand" style="margin-bottom:8px">
+                    <div class="logo" aria-hidden="true"></div>
+                    <strong>RN Tours</strong>
+                </div>
+                <p class="kicker">© <span id="year"></span> RN Tours. All rights reserved.</p>
+            </div>
+            <div>
+                <strong>Quick Links</strong>
+                <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                    <a href="#packages">Packages</a>
+                    <a href="#pricing">Pricing</a>
+                    <a href="#gallery">Gallery</a>
+                    <a href="#contact">Contact</a>
+                </div>
+            </div>
+            <div>
+                <strong>Legal</strong>
+                <div style="display:flex;flex-direction:column;gap:8px;margin-top:8px">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mock Payment Modal -->
+    <dialog id="payModal" style="border:none;border-radius:18px;padding:0;max-width:520px;width:92vw">
+        <div
+            style="background:var(--surface);color:var(--text);padding:18px;border:1px solid rgba(255,255,255,.08);border-radius:18px;box-shadow:var(--shadow)">
+            <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
+                <strong>Secure Checkout (Sandbox)</strong>
+                <button class="pill" id="closePay">Close</button>
+            </div>
+            <p class="kicker" id="checkoutDesc">Confirm your payment details below.</p>
+            <form id="mockPayForm" class="calc" style="grid-template-columns:1fr 1fr">
+                <div class="field">
+                    <label for="cardname">Name on Card</label>
+                    <input id="cardname" type="text" placeholder="A. Perera" required />
+                </div>
+                <div class="field">
+                    <label for="cardnum">Card Number</label>
+                    <input id="cardnum" type="text" inputmode="numeric" placeholder="4242 4242 4242 4242" required />
+                </div>
+                <div class="field">
+                    <label for="exp">Expiry</label>
+                    <input id="exp" type="text" placeholder="MM/YY" required />
+                </div>
+                <div class="field">
+                    <label for="cvc">CVC</label>
+                    <input id="cvc" type="text" inputmode="numeric" placeholder="123" required />
+                </div>
+                <button class="btn btn-primary" type="submit" style="grid-column:1 / -1"><i
+                        class="fa-solid fa-lock"></i> Pay Now</button>
+            </form>
+        </div>
+    </dialog>
+
+    <script>
+        const LKR = new Intl.NumberFormat('en-LK', { style: 'currency', currency: 'LKR', maximumFractionDigits: 0 });
+
+        // --- Package Data ---
+        const packages = [
+            {
+                id: 'beach_escape',
+                title: 'Southern Beach Escape',
+                days: 4,
+                img: 'https://www.surfing-village.com/wp-content/uploads/2019/01/DAOCAVANACA_.jpg',
+                blurb: 'Galle • Mirissa • Unawatuna – snorkel, surf & sunset cruises.',
+                base: 85000
+            },
+            {
+                id: 'hill_country',
+                title: 'Hill Country Discovery',
+                days: 5,
+                img: 'https://1.bp.blogspot.com/-5x9WQ8pVd-Q/WqOKzXdslxI/AAAAAAAAAd8/zcFjZgPnfFsE1eLIdXyGem09ttowXJplwCLcBGAs/s1600/1.jpg',
+                blurb: 'Kandy • Nuwara Eliya • Ella – tea trails, waterfalls & trains.',
+                base: 115000
+            },
+            {
+                id: 'culture_wild',
+                title: 'Culture & Wildlife Circuit',
+                days: 7,
+                img: 'https://bmkltsly13vb.compat.objectstorage.ap-mumbai-1.oraclecloud.com/cdn.ft.lk/assets/uploads/image_03173cb06c.jpg',
+                blurb: 'Sigiriya • Dambulla • Minneriya • Polonnaruwa – UNESCO gems & safaris.',
+                base: 175000
+            }
+        ];
+
+        // --- Render Packages ---
+        const packageGrid = document.getElementById('packageGrid');
+        const packageSelect = document.getElementById('packageSelect');
+
+        function renderPackages() {
+            packageGrid.innerHTML = '';
+            packages.forEach(p => {
+                const card = document.createElement('article');
+                card.className = 'card';
+                card.innerHTML = `
+          <img src="${p.img}" alt="${p.title}" loading="lazy"/>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;align-items:center">
+              <h4 style="margin:0">${p.title}</h4>
+              <span class="pill"><i class="fa-regular fa-clock"></i> ${p.days} days</span>
+            </div>
+            <p class="kicker">${p.blurb}</p>
+            <div class="meta">
+              <span class="price" id="price_${p.id}">\u2013</span>
+            </div>
+            <div style="display:flex;gap:10px;margin-top:6px">
+              <button class="btn btn-outline" data-pkg="${p.id}"><i class="fa-solid fa-eye"></i> Show Price</button>
+              <button class="btn btn-primary" data-book="${p.id}"><i class="fa-regular fa-calendar-check"></i> Book Now</button>
+            </div>
+          </div>`;
+                packageGrid.appendChild(card);
+            });
+
+            // Fill select
+            packages.forEach(p => {
+                const opt = document.createElement('option');
+                opt.value = p.id; opt.textContent = `${p.title} (${p.days}d)`; packageSelect.appendChild(opt);
+            })
+        }
+
+        renderPackages();
+
+        // --- Pricing Engine ---
+        const vehicleFactors = { sedan: 1, van: 1.25, minibus: 1.6, luxury: 1.8 };
+        const perPersonPerDay = 9000; // base services (guide, hotels avg., activities)
+        const serviceFee = 0.05; // 5%
+
+        const travelers = document.getElementById('travelers');
+        const days = document.getElementById('days');
+        const vehicle = document.getElementById('vehicle');
+        const totalPriceEl = document.getElementById('totalPrice');
+        const priceNote = document.getElementById('priceNote');
+
+        function packageBase(id) {
+            if (id === 'custom' || !id) return 0; const p = packages.find(x => x.id === id); return p ? p.base : 0;
+        }
+
+        function calcTotal() {
+            const t = Math.max(1, parseInt(travelers.value || 1));
+            const d = Math.max(1, parseInt(days.value || 1));
+            const veh = vehicle.value;
+            const selectedPkg = packageSelect.value;
+
+            // Dynamic formula: package base + variable services
+            const base = packageBase(selectedPkg);
+            const variable = perPersonPerDay * t * d * vehicleFactors[veh];
+            const subtotal = base + variable;
+            const fees = subtotal * serviceFee;
+            const total = Math.round(subtotal + fees);
+
+            totalPriceEl.textContent = LKR.format(total);
+            priceNote.textContent = `${t} traveler(s) · ${d} day(s) · ${veh.replace(/\b\w/g, c => c.toUpperCase())}${base ? ' · includes package base' : ''}`;
+            return { total, breakdown: { base, variable, fees } };
+        }
+
+        ['input', 'change'].forEach(ev => {
+            travelers.addEventListener(ev, calcTotal);
+            days.addEventListener(ev, calcTotal);
+            vehicle.addEventListener(ev, calcTotal);
+            packageSelect.addEventListener(ev, calcTotal);
+        });
+
+        const initial = calcTotal();
+
+        // Show price on cards
+        packageGrid.addEventListener('click', (e) => {
+            if (e.target.closest('[data-pkg]')) {
+                const id = e.target.closest('[data-pkg]').dataset.pkg;
+                packageSelect.value = id; days.value = packages.find(p => p.id === id).days; // sync days
+                const { total } = calcTotal();
+                const priceEl = document.getElementById('price_' + id);
+                if (priceEl) priceEl.textContent = LKR.format(total);
+            }
+            if (e.target.closest('[data-book]')) {
+                const id = e.target.closest('[data-book]').dataset.book;
+                packageSelect.value = id; days.value = packages.find(p => p.id === id).days; calcTotal();
+                document.getElementById('pricing').scrollIntoView({ behavior: 'smooth' });
             }
         });
 
-        // Close mobile menu when link clicked
-        mobileLinks.forEach(a => a.addEventListener('click', () => {
-            mobileMenu.style.display = 'none';
-            hamburger.setAttribute('aria-expanded', 'false');
-        }));
+        // --- Gallery & Filters ---
+        const galleryData = [
+            { src: 'https://th.bing.com/th/id/R.7784190446712ddbb332b3683864c4a6?rik=GijssQnAv7W6IQ&riu=http%3a%2f%2fwww.backpackerbanter.com%2fblog%2fwp-content%2fuploads%2f2018%2f11%2fsri-lanka-tbc-asia-2018-5-of-6.jpg&ehk=xl%2bm7o7wjQRimymmtGxRU5eMYW9d2dqQH6wbnHzuPC4%3d&risl=&pid=ImgRaw&r=0', tag: 'Beach', alt: 'Palm-lined beach in Sri Lanka' },
+            { src: 'https://tse3.mm.bing.net/th/id/OIP.EQz_OcipM4t9Bqa3t2uDiQHaE8?rs=1&pid=ImgDetMain&o=7&rm=3', tag: 'Wildlife', alt: 'Elephants in Minneriya' },
+            { src: 'https://res-3.cloudinary.com/enchanting/w_2000,h_1335,c_fill,f_auto/et-web/2018/11/Beautiful-beach-and-lighthouse-in-SriLanka-Asia.jpg', tag: 'Culture', alt: 'Sigiriya rock fortress sunrise' },
+            { src: 'https://tse4.mm.bing.net/th/id/OIP.3UNgm3c3_PT865rDSPdAVAHaFj?w=700&h=525&rs=1&pid=ImgDetMain&o=7&rm=3', tag: 'Hill Country', alt: 'Tea plantations in Ella' },
+            { src: 'https://ssl.tzoo-img.com/images/tzoo.98833.0.732684.SriLankatrain.jpg?width=1080', tag: 'Beach', alt: 'Stilt fishermen at sunset' },
+            { src: 'https://tse4.mm.bing.net/th/id/OIF.RueMszeKAEX6aJnscPm5Mg?rs=1&pid=ImgDetMain&o=7&rm=3', tag: 'Culture', alt: 'Temple of the Tooth, Kandy' },
+            { src: 'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/471000/471485-Kandy-Sri-Lanka.jpg?impolicy=fcrop&w=1200&h=500&q=medium', tag: 'Wildlife', alt: 'Leopard in Yala National Park' },
+            { src: 'https://www.trawell.in/admin/images/upload/139349810Bomburu_ella_falls.jpg', tag: 'Hill Country', alt: 'Nine Arches Bridge train' },
+        ];
 
-        /* -------------------------
-           Smooth scrolling for internal links
-           ------------------------- */
-        const smoothScrollTo = (selector) => {
-            const el = document.querySelector(selector);
-            if (!el) return;
-            el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        };
+        const galleryGrid = document.getElementById('galleryGrid');
+        const filters = document.getElementById('filters');
 
-        document.querySelectorAll('a[href^="#"], button#ctaContact, .btn.secondary').forEach(el => {
-            el.addEventListener('click', (e) => {
-                const href = el.getAttribute('href');
-                if (el.id === 'ctaContact') {
-                    e.preventDefault();
-                    smoothScrollTo('#contact');
-                    return;
-                }
-                if (href && href.startsWith('#')) {
-                    e.preventDefault();
-                    smoothScrollTo(href);
-                }
-            });
+        const tags = ['All', 'Beach', 'Hill Country', 'Culture', 'Wildlife'];
+        tags.forEach(t => {
+            const b = document.createElement('button'); b.className = 'filter-btn'; b.textContent = t; if (t === 'All') b.classList.add('active');
+            b.addEventListener('click', () => { document.querySelectorAll('.filter-btn').forEach(x => x.classList.remove('active')); b.classList.add('active'); renderGallery(t); });
+            filters.appendChild(b);
         });
 
-        /* -------------------------
-           Update active nav on scroll
-           ------------------------- */
-        const observerOptions = { root: null, rootMargin: '0px', threshold: 0.45 };
-        const onIntersect = (entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const id = entry.target.id;
-                    // deactivate
-                    document.querySelectorAll('.nav-link').forEach(a => a.classList.remove('active'));
-                    const link = document.querySelector('.nav-link[href="#' + id + '"]');
-                    if (link) link.classList.add('active');
-                }
-            });
-        };
-        const observer = new IntersectionObserver(onIntersect, observerOptions);
-        document.querySelectorAll('section[id], main[id]').forEach(section => observer.observe(section));
-
-        /* -------------------------
-           Tab switching for portfolio
-           ------------------------- */
-        const tabButtons = document.querySelectorAll('.tab-btn');
-        const tabWeb = document.getElementById('tab-web');
-        const tabPhoto = document.getElementById('tab-photo');
-
-        tabButtons.forEach(btn => {
-            btn.addEventListener('click', () => {
-                tabButtons.forEach(b => b.classList.remove('active'));
-                btn.classList.add('active');
-
-                const tab = btn.dataset.tab;
-                if (tab === 'web') {
-                    tabWeb.style.display = '';
-                    tabPhoto.style.display = 'none';
-                } else {
-                    tabWeb.style.display = 'none';
-                    tabPhoto.style.display = '';
-                }
-            });
-        });
-
-        /* -------------------------
-           Lightbox for photography gallery
-           ------------------------- */
-        const gallery = document.querySelector('.gallery');
-        const lightbox = document.getElementById('lightbox');
-        const lightboxImg = lightbox.querySelector('img');
-
-        if (gallery) {
-            gallery.addEventListener('click', e => {
-                const img = e.target.closest('img');
-                if (!img) return;
-                const full = img.dataset.full || img.src;
-                lightboxImg.src = full;
-                lightbox.style.display = 'flex';
-                lightbox.setAttribute('aria-hidden', 'false');
+        function renderGallery(filter = 'All') {
+            galleryGrid.innerHTML = '';
+            galleryData.filter(i => filter === 'All' || i.tag === filter).forEach(i => {
+                const g = document.createElement('img'); g.src = i.src; g.alt = i.alt; g.loading = 'lazy';
+                g.addEventListener('click', () => openLightbox(i.src, i.alt));
+                galleryGrid.appendChild(g);
             });
         }
-        lightbox.addEventListener('click', () => {
-            lightbox.style.display = 'none';
-            lightbox.setAttribute('aria-hidden', 'true');
-            lightboxImg.src = '';
-        });
+        renderGallery();
 
-        /* -------------------------
-           Simple contact form handling (client-side demo)
-           Replace with real backend or form service later
-           ------------------------- */
-        const form = document.getElementById('contactForm');
-        const status = document.getElementById('formStatus');
-        form.addEventListener('submit', (e) => {
+        // Lightbox
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        function openLightbox(src, alt) { lightboxImg.src = src; lightboxImg.alt = alt; lightbox.classList.add('open'); }
+        lightbox.addEventListener('click', (e) => { if (e.target === lightbox) lightbox.classList.remove('open'); });
+        window.addEventListener('keydown', (e) => { if (e.key === 'Escape') lightbox.classList.remove('open'); });
+
+        // --- Testimonials Carousel ---
+        const testimonials = [
+            { name: 'Sahan & Dilini', text: 'Flawless honeymoon to the south coast. RN Tours handled every detail—sunsets, whale watching, and the best seafood!', rating: 5 },
+            { name: 'Aisha K.', text: 'Hill country trip was magical. Our guide knew hidden tea trails and photo spots. Highly recommended!', rating: 5 },
+            { name: 'Mark T.', text: 'Cultural triangle + safari exceeded expectations. Clean van, safe driver, and flexible itinerary.', rating: 4 },
+            { name: 'Yuuki', text: 'Booking was easy, pricing transparent, and WhatsApp support super fast. Will return for the east coast!', rating: 5 }
+        ];
+
+        const slides = document.getElementById('slides');
+        const dots = document.getElementById('dots');
+        let idx = 0; let timer;
+
+        function starStr(n) { return '★'.repeat(n) + '☆'.repeat(5 - n); }
+
+        function renderSlides() {
+            slides.innerHTML = ''; dots.innerHTML = '';
+            testimonials.forEach((t, i) => {
+                const s = document.createElement('div'); s.className = 'slide';
+                s.innerHTML = `<p style="font-size:1.1rem;margin:0 0 8px">“${t.text}”</p>
+          <div class="kicker" style="display:flex;justify-content:space-between;align-items:center">
+            <strong>${t.name}</strong>
+            <span aria-label="Rating">${starStr(t.rating)}</span>
+          </div>`;
+                slides.appendChild(s);
+                const d = document.createElement('button'); d.className = 'dot'; d.addEventListener('click', () => goTo(i)); dots.appendChild(d);
+            });
+            updateCarousel();
+        }
+        function updateCarousel() {
+            slides.style.transform = `translateX(-${idx * 100}%)`;
+            [...dots.children].forEach((d, i) => d.classList.toggle('active', i === idx));
+        }
+        function goTo(i) { idx = i; updateCarousel(); restartTimer(); }
+        function next() { idx = (idx + 1) % testimonials.length; updateCarousel(); }
+        function restartTimer() { clearInterval(timer); timer = setInterval(next, 4800); }
+
+        renderSlides(); restartTimer();
+
+        // --- Contact / WhatsApp link ---
+        const waBase = 'https://wa.me/94771234567?text=';
+        const waLink = document.getElementById('waLink');
+        const waFloat = document.getElementById('waFloat');
+        function updateWA() {
+            const msg = encodeURIComponent(`Hello RN Tours, I'm interested in a ${days.value}-day trip for ${travelers.value} traveler(s) via ${vehicle.value}. Estimated total ${totalPriceEl.textContent}.`);
+            waLink.href = waBase + msg; waFloat.href = waBase + msg;
+        }
+        ['input', 'change'].forEach(ev => { travelers.addEventListener(ev, updateWA); days.addEventListener(ev, updateWA); vehicle.addEventListener(ev, updateWA); packageSelect.addEventListener(ev, updateWA); });
+        updateWA();
+
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
             e.preventDefault();
-            // Basic validation
-            const name = form.name.value.trim();
-            const email = form.email.value.trim();
-            const message = form.message.value.trim();
-            if (!name || !email || !message) {
-                status.textContent = 'Please fill required fields.';
-                return;
-            }
-            // Fake send: you should use fetch() to a backend endpoint here or Formspree/Netlify Forms
-            status.style.color = 'var(--muted)';
-            status.textContent = 'Sending...';
-
-            // Simulate async send
-            setTimeout(() => {
-                status.style.color = 'var(--accent-2)';
-                status.textContent = 'Message sent! I will reply soon.';
-                form.reset();
-            }, 800);
+            alert('Thanks! Your inquiry has been sent. We\'ll reply soon.');
+            e.target.reset(); updateWA();
         });
 
-        /* -------------------------
-           Reveal on scroll (small animation) using IntersectionObserver
-           ------------------------- */
-        const reveals = document.querySelectorAll('.reveal');
-        const revealObserver = new IntersectionObserver((entries, obs) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('is-visible');
-                    obs.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.12 });
-        reveals.forEach(r => revealObserver.observe(r));
+        // --- Mock Payment (Stripe/PayHere Sandbox) ---
+        const payModal = document.getElementById('payModal');
+        const closePay = document.getElementById('closePay');
+        const mockPayForm = document.getElementById('mockPayForm');
 
-        /* -------------------------
-           Accessibility: allow keyboard navigation for tabs
-           ------------------------- */
-        tabButtons.forEach(btn => {
-            btn.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                    e.preventDefault();
-                    const idx = Array.from(tabButtons).indexOf(btn);
-                    const next = e.key === 'ArrowRight' ? (idx + 1) % tabButtons.length : (idx - 1 + tabButtons.length) % tabButtons.length;
-                    tabButtons[next].focus();
-                    tabButtons[next].click();
-                }
-            });
+        function openCheckout(provider) {
+            const { total } = calcTotal();
+            document.getElementById('checkoutDesc').textContent = `${provider} sandbox – paying ${LKR.format(total)} for ${days.value}-day trip (${travelers.value} pax, ${vehicle.value}).`;
+            payModal.showModal();
+        }
+
+        document.getElementById('payStripe').addEventListener('click', () => openCheckout('Stripe'));
+        document.getElementById('payPayHere').addEventListener('click', () => openCheckout('PayHere'));
+        closePay.addEventListener('click', () => payModal.close());
+
+        mockPayForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Very light validation mock
+            const num = document.getElementById('cardnum').value.replace(/\s+/g, '');
+            if (!/^\d{16}$/.test(num)) return alert('Please enter a valid 16-digit test card number, e.g. 4242 4242 4242 4242');
+            const { total } = calcTotal();
+            payModal.close();
+            alert(`Payment confirmed! Reference: RN-${Date.now().toString().slice(-6)}\nAmount: ${LKR.format(total)}\nWe\'ve emailed your receipt.`);
         });
 
-        /* -------------------------
-           Small enhancement: close mobile menu when clicking outside
-           ------------------------- */
-        document.addEventListener('click', (e) => {
-            if (!mobileMenu.contains(e.target) && !hamburger.contains(e.target)) {
-                if (window.getComputedStyle(mobileMenu).display === 'block') {
-                    mobileMenu.style.display = 'none';
-                    hamburger.setAttribute('aria-expanded', 'false');
-                }
-            }
-        });
+        // Footer year
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 
